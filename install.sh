@@ -2,6 +2,7 @@
 
 LINE='--------------------------------------------------------------'
 CURR_DIR=`basename $PWD`
+VIM_VENDOR='~/vim/pack/vendor'
 
 if [ $CURR_DIR != 'dotfiles' ]; then
 	echo $LINE
@@ -12,7 +13,44 @@ if [ $CURR_DIR != 'dotfiles' ]; then
 	exit 1
 fi
 
-#echo "DOING THINGS"
+
+_symlink() {
+	local from=$1
+	local to=$2
+	# Do the actual command:
+	ln -s $from $to
+}
+
+_err_if_file_doesnt_exist() {
+	local f=$1
+	if [ ! -f "$f" ]; then
+		echo "ERROR: $f does not exist."
+		exit 1
+	fi
+}
+
+_err_if_dir_doesnt_exist() {
+	local d=$1
+	if [ ! -d "$d" ]; then
+		echo "ERROR: $d does not exist."
+		exit 1
+	fi
+}
+
+_err_if_file_already_exists() {
+	local f=$1
+	if [ -f "$f" ]; then
+		echo "ERROR: $f already exists."
+		exit 1
+	fi
+}
+
+_err_if_dir_already_exists() {
+  local d=$1
+  if [ -d "$d" ]; then
+    echo "ERROR: $d already exists."
+  fi
+}
 
 _install() {
 	local from=$1
@@ -24,21 +62,35 @@ _install() {
 		return
 	fi
 
-	if [ ! -f "$from" ]; then
-		echo "ERROR: $from does not exist."
-		exit 1
-	fi
-
-	if [ -f "$to" ]; then
-		echo "ERROR: $to already exists."
-		exit 1
-	fi
+  _err_if_file_doesnt_exist $from
+  _err_if_file_already_exists $to
 
 	echo "Installing '$from' to '$to'..."
-	
-	# Do the actual command:
-	ln -s $from $to
+	_symlink $from $to
 }
 
+_install_dir() {
+	local from=$1
+	local to=$2
+	echo "Installing $from directory..."
+
+	if [ -L "$to" ]; then
+		echo "Symlink to $to already exists. Skipping..."
+		return
+	fi
+
+  _err_if_dir_doesnt_exist $from
+  _err_if_dir_already_exists $to
+
+	echo "Installing '$from' directory to '$to'..."
+	_symlink $from $to
+}
+
+
 _install $PWD/gitconfig $HOME/.gitconfig
+
 _install $PWD/vimrc $HOME/.vimrc
+
+_install_dir $PWD/vim $HOME/.vim
+
+vim -u NONE -c "helptags $VIM_VENDOR/start/nerdtree/doc" -c q

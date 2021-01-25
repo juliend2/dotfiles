@@ -57,4 +57,8 @@ set statusline+=%=                           " right align remainder··
 set statusline+=%-14(%l,%c%V%)               " line, character··
 set statusline+=%<%P                         " file position··
 
+" NerdTree stuff:
+let NERDTreeChDirMode=2
+map <Leader>n :NERDTreeToggle<CR>
 
+set secure " disable unsafe commands in local .vimrc files
