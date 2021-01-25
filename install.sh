@@ -19,6 +19,11 @@ _install() {
 	local to=$2
 	echo "Installing $from..."
 
+	if [ -L "$to" ]; then
+		echo "Symlink to $to already exists. Skipping..."
+		return
+	fi
+
 	if [ ! -f "$from" ]; then
 		echo "ERROR: $from does not exist."
 		exit 1
@@ -36,3 +41,4 @@ _install() {
 }
 
 _install $PWD/gitconfig $HOME/.gitconfig
+_install $PWD/vimrc $HOME/.vimrc
