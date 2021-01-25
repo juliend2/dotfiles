@@ -1,8 +1,13 @@
 #!/bin/sh
 
+
+# Set some variables:
+
 LINE='--------------------------------------------------------------'
 CURR_DIR=`basename $PWD`
 VIM_VENDOR='~/vim/pack/vendor'
+
+# Ensure we call this script from the proper place:
 
 if [ $CURR_DIR != 'dotfiles' ]; then
 	echo $LINE
@@ -20,6 +25,8 @@ _symlink() {
 	# Do the actual command:
 	ln -s $from $to
 }
+
+# Error out if {something}:
 
 _err_if_file_doesnt_exist() {
 	local f=$1
@@ -51,6 +58,8 @@ _err_if_dir_already_exists() {
     echo "ERROR: $d already exists."
   fi
 }
+
+# Installation scripts:
 
 _install() {
 	local from=$1
@@ -86,11 +95,10 @@ _install_dir() {
 	_symlink $from $to
 }
 
-
+# Run the installation of dot(files|directories) ...
 _install $PWD/gitconfig $HOME/.gitconfig
-
 _install $PWD/vimrc $HOME/.vimrc
-
 _install_dir $PWD/vim $HOME/.vim
 
+# Add plugins' documentation:
 vim -u NONE -c "helptags $VIM_VENDOR/start/nerdtree/doc" -c q
