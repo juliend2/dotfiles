@@ -3,7 +3,6 @@
 	cp = cherry-pick
 	ci = commit
 	ca = commit --amend
-	cma = commit -a -m
 	st = status
 	s = status
 	d = diff
@@ -15,22 +14,23 @@
 	long = log --pretty=full
 	p = push
 	co = checkout
-	puma = pull origin master
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
 	gr = grep -n --color=always
 	h = help
 	tags = tag -l -n1
+
 [user]
 	name = Julien Desrosiers
-	email = juliend2@gmail.com
-[http]
-	sslVerify = false
+	email = jdesrosiers@hq.audiokinetic.com
+
 [color]
 	ui = true
+
 [push]
-        default = simple
+	default = simple
+
 [color "diff-highlight"]
-        oldNormal = red bold
-        oldHighlight = red bold 52
-        newNormal = green bold
-        newHighlight = green bold 22
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22

@@ -1,6 +1,30 @@
 syntax on
 filetype plugin indent on
 
+
+" For Colemak :
+" Navigation :
+noremap n j
+noremap e k
+noremap i l
+" End of word navigation :
+noremap j e
+" Next in search mode :
+noremap k n
+" l becomes the equivalent of i, for insert mode :
+noremap l i
+
+" Moving between splits :
+noremap <C-w>n <C-w>j
+" noremap <C-w>H <C-w>K
+noremap <C-w>e <C-w>k
+" noremap <C-w>J <C-w>H
+noremap <C-w>i <C-w>l
+" noremap <C-w>K <C-w>J
+
+
+
+
 set exrc " enable per-directory .vimrc files
 
 " For multi-byte character support
