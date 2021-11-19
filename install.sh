@@ -96,6 +96,7 @@ _install_dir() {
 }
 
 # Run the installation of dot(files|directories) ...
+_install $PWD/tmux.conf $HOME/.tmux.conf
 _install $PWD/gitconfig $HOME/.gitconfig
 _install $PWD/vimrc $HOME/.vimrc
 _install_dir $PWD/vim $HOME/.vim
