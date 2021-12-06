@@ -59,6 +59,17 @@ _err_if_dir_already_exists() {
   fi
 }
 
+_err_if_source_already_exists() {
+  local line=$1
+  local file=$2
+  if grep -Fxq "$line" $file
+  then
+    echo "ERROR: The line '$line' already exist in $file."
+    exit 1
+  fi
+}
+
+
 # Installation scripts:
 
 _install() {
@@ -76,6 +87,16 @@ _install() {
 
 	echo "Installing '$from' to '$to'..."
 	_symlink $from $to
+}
+
+_install_bash_source() {
+  local src=$1
+  local file=$2
+  echo "Installing a sourcing of '$src' to '$file'..."
+
+  _err_if_source_already_exists $src $file
+
+  echo "source $src" >> $file
 }
 
 _install_dir() {
@@ -100,6 +121,9 @@ _install $PWD/tmux.conf $HOME/.tmux.conf
 _install $PWD/gitconfig $HOME/.gitconfig
 _install $PWD/vimrc $HOME/.vimrc
 _install_dir $PWD/vim $HOME/.vim
+
+# Adding bash sub-config:
+_install_bash_source $PWD/bash_aliases.sh $HOME/.bashrc
 
 # Add plugins' documentation:
 vim -u NONE -c "helptags $VIM_VENDOR/start/nerdtree/doc" -c q
