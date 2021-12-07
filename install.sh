@@ -62,7 +62,9 @@ _err_if_dir_already_exists() {
 _err_if_source_already_exists() {
   local line=$1
   local file=$2
-  if grep -Fxq "$line" $file
+  local basenamed=$(basename $line)
+
+  if grep -Fq "$basenamed" $file
   then
     echo "ERROR: The line '$line' already exist in $file."
     exit 1
