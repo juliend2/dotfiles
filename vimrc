@@ -58,7 +58,7 @@ set formatoptions=c,q,r,t " This is a sequence of letters which describes how au
 
 set ruler           " Show the line and column number of the cursor position, separated by a comma.
 set background=dark " When set to "dark", Vim will try to use colors that look good on a dark background. When set to "light", Vim will try to use colors that look good on a light background. Any other value is illegal.
-set mouse=a         " Enable the use of the mouse.
+" set mouse=a         " Enable the use of the mouse.
 let mapleader = ","
 
 " CTRL-C to copy in the clipboard the text that is currently selected.
