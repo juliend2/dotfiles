@@ -83,6 +83,7 @@ set statusline+=%<%P                         " file position··
 
 " NerdTree stuff:
 let NERDTreeChDirMode=2
+let NERDTreeMapOpenExpl='E' " Make sure the 'e' is usable for navigating in the NERDTree buffer
 map <Leader>n :NERDTreeToggle<CR>
 
 set secure " disable unsafe commands in local .vimrc files
