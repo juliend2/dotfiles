@@ -124,7 +124,9 @@ _install $PWD/tmux.conf $HOME/.tmux.conf
 _install $PWD/gitconfig $HOME/.gitconfig
 _install $PWD/vimrc $HOME/.vimrc
 _install $PWD/ssh_rc.sh $HOME/.ssh/rc
+_install $PWD/xprofile $HOME/.xprofile
 _install_dir $PWD/vim $HOME/.vim
+_install_dir $PWD/screenlayout $HOME/.screenlayout
 
 # Adding bash sub-config:
 _install_bash_source $PWD/bash_aliases.sh $HOME/.bashrc

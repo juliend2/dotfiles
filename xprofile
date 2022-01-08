@@ -1,0 +1,4 @@
+if xrandr | grep 'HDMI-2 connected'; then
+  sh $HOME/.screenlayout/avec-gros-ecran.sh
+fi
+
