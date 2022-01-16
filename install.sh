@@ -31,7 +31,7 @@ _symlink() {
 _err_if_file_doesnt_exist() {
 	local f=$1
 	if [ ! -f "$f" ]; then
-		echo "ERROR: $f does not exist."
+		echo "❌ ERROR: $f does not exist."
 		exit 1
 	fi
 }
@@ -39,7 +39,7 @@ _err_if_file_doesnt_exist() {
 _err_if_dir_doesnt_exist() {
 	local d=$1
 	if [ ! -d "$d" ]; then
-		echo "ERROR: $d does not exist."
+		echo "❌ ERROR: $d does not exist."
 		exit 1
 	fi
 }
@@ -47,7 +47,7 @@ _err_if_dir_doesnt_exist() {
 _err_if_file_already_exists() {
 	local f=$1
 	if [ -f "$f" ]; then
-		echo "ERROR: $f already exists."
+		echo "❌ ERROR: $f already exists."
 		exit 1
 	fi
 }
@@ -55,7 +55,7 @@ _err_if_file_already_exists() {
 _err_if_dir_already_exists() {
   local d=$1
   if [ -d "$d" ]; then
-    echo "ERROR: $d already exists."
+    echo "❌ ERROR: $d already exists."
   fi
 }
 
@@ -66,7 +66,7 @@ _err_if_source_already_exists() {
 
   if grep -Fq "$basenamed" $file
   then
-    echo "ERROR: The line '$line' already exist in $file."
+    echo "❌ ERROR: The line '$line' already exist in $file."
     exit 1
   fi
 }
@@ -80,12 +80,12 @@ _install() {
 	echo "Installing $from..."
 
 	if [ -L "$to" ]; then
-		echo "Symlink to $to already exists. Skipping..."
+		echo "❌ Symlink to $to already exists. Skipping..."
 		return
 	fi
 
-  _err_if_file_doesnt_exist $from
-  _err_if_file_already_exists $to
+  	_err_if_file_doesnt_exist $from
+  	_err_if_file_already_exists $to
 
 	echo "Installing '$from' to '$to'..."
 	_symlink $from $to
@@ -107,15 +107,19 @@ _install_dir() {
 	echo "Installing $from directory..."
 
 	if [ -L "$to" ]; then
-		echo "Symlink to $to already exists. Skipping..."
+		echo "❌ Symlink to $to already exists. Skipping..."
 		return
 	fi
 
-  _err_if_dir_doesnt_exist $from
-  _err_if_dir_already_exists $to
+	_err_if_dir_doesnt_exist $from
+	err=$(_err_if_dir_already_exists $to)
 
-	echo "Installing '$from' directory to '$to'..."
-	_symlink $from $to
+	if [ -n "$err" ]; then
+		echo "❌ Folder to $to already exists. Skipping..."
+	else
+		echo "Installing '$from' directory to '$to'..."
+		_symlink $from $to
+	fi
 }
 
 # Run the installation of dot(files|directories) ...
@@ -125,6 +129,7 @@ _install $PWD/gitconfig $HOME/.gitconfig
 _install $PWD/vimrc $HOME/.vimrc
 _install $PWD/ssh_rc.sh $HOME/.ssh/rc
 _install $PWD/xprofile $HOME/.xprofile
+_install $PWD/inputrc $HOME/.inputrc
 _install_dir $PWD/vim $HOME/.vim
 _install_dir $PWD/screenlayout $HOME/.screenlayout
 

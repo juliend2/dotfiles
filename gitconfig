@@ -34,3 +34,6 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+
+[core]
+  editor = "vim"
