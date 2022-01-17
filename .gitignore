@@ -1,1 +1,11 @@
 *.swp
+/dot_config/GIMP/
+/dot_config/configstore/
+/dot_config/dconf/
+/dot_config/enchant/
+/dot_config/filezilla/
+/dot_config/gh/
+/dot_config/gtk-2.0/
+/dot_config/inkscape/
+/dot_config/pulse/
+
