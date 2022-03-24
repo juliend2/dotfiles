@@ -1,4 +1,7 @@
 [alias]
+  rb = rebase
+  f = fetch
+  fu = fetch upstream
 	c = clone
 	cp = cherry-pick
 	ci = commit
@@ -37,3 +40,6 @@
 
 [core]
   editor = "vim"
+
+[init]
+	defaultBranch = master

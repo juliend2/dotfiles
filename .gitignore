@@ -1,4 +1,5 @@
 *.swp
+<<<<<<< HEAD
 /dot_config/GIMP/
 /dot_config/configstore/
 /dot_config/dconf/
@@ -9,3 +10,6 @@
 /dot_config/inkscape/
 /dot_config/pulse/
 
+=======
+vim/.netrwhist
+>>>>>>> 66c5401 (git shortcuts)
