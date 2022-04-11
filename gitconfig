@@ -1,4 +1,5 @@
 [alias]
+  r = reset
   rb = rebase
   f = fetch
   fu = fetch upstream
