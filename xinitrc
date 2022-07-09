@@ -4,4 +4,5 @@ while true; do
    sleep 1m    # Update time every minute
 done &
 
-exec dbus-launch dwm
+# exec dbus-launch dwm
+exec dwm
