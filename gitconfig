@@ -22,6 +22,8 @@
 	gr = grep -n --color=always
 	h = help
 	tags = tag -l -n1
+  fu = fetch upstream
+  rud = rebase upstream/dev
 
 [user]
 	name = Julien Desrosiers
