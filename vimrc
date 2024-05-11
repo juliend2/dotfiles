@@ -1,3 +1,4 @@
+
 syntax on
 filetype plugin indent on
 
@@ -57,7 +58,7 @@ set formatoptions=c,q,r,t " This is a sequence of letters which describes how au
                     "           to comments)
 
 set ruler           " Show the line and column number of the cursor position, separated by a comma.
-set background=dark " When set to "dark", Vim will try to use colors that look good on a dark background. When set to "light", Vim will try to use colors that look good on a light background. Any other value is illegal.
+set background=light " When set to "dark", Vim will try to use colors that look good on a dark background. When set to "light", Vim will try to use colors that look good on a light background. Any other value is illegal.
 " set mouse=a         " Enable the use of the mouse.
 let mapleader = ","
 

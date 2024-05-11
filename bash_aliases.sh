@@ -1,4 +1,6 @@
 alias g='git'
+alias ll='ls -la'
+
 
 JVIMRC=$HOME/.jvimrc
 if test -f "$JVIMRC"; then
