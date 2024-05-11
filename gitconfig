@@ -1,4 +1,8 @@
 [alias]
+  r = reset
+  rb = rebase
+  f = fetch
+  fu = fetch upstream
 	c = clone
 	cp = cherry-pick
 	ci = commit
@@ -18,6 +22,8 @@
 	gr = grep -n --color=always
 	h = help
 	tags = tag -l -n1
+  fu = fetch upstream
+  rud = rebase upstream/dev
 
 [user]
 	name = Julien Desrosiers
@@ -37,3 +43,12 @@
 
 [core]
   editor = "vim"
+
+[init]
+	defaultBranch = master
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

@@ -85,10 +85,15 @@ _install() {
 	fi
 
   	_err_if_file_doesnt_exist $from
-  	_err_if_file_already_exists $to
+  	#_err_if_file_already_exists $to
+	err=$(_err_if_file_already_exists $to)
 
-	echo "Installing '$from' to '$to'..."
-	_symlink $from $to
+	if [ -n "$err" ]; then
+		echo "❌ Symlink to $to already exists. Skipping..."
+	else
+		echo "Installing '$from' to '$to'..."
+		_symlink $from $to
+	fi
 }
 
 _install_bash_source() {
