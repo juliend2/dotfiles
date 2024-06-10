@@ -24,7 +24,8 @@ noremap <C-w>i <C-w>l
 " noremap <C-w>K <C-w>J
 
 
-
+let g:ctrlp_max_depth=40
+let g:ctrlp_max_files=0
 
 set exrc " enable per-directory .vimrc files
 
