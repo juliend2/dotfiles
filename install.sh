@@ -145,3 +145,9 @@ _install_bash_source $PWD/bash_aliases.sh $HOME/.bashrc
 
 # Add plugins' documentation:
 vim -u NONE -c "helptags $VIM_VENDOR/start/nerdtree/doc" -c q
+
+
+echo "+-----------------------------------------------------+"
+echo "| NOTE: For the .ssh/config, look at pwmgr            |"
+echo "+-----------------------------------------------------+"
+
