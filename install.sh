@@ -132,6 +132,7 @@ _install_dir $PWD/dot_config $HOME/.config
 _install $PWD/tmux.conf $HOME/.tmux.conf
 _install $PWD/gitconfig $HOME/.gitconfig
 _install $PWD/vimrc $HOME/.vimrc
+_install $PWD/bashrc $HOME/.bashrc
 _install $PWD/ssh_rc.sh $HOME/.ssh/rc
 #_install $PWD/xprofile $HOME/.xprofile
 #_install $PWD/xinitrc $HOME/.xinitrc
