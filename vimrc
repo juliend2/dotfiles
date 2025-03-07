@@ -2,6 +2,23 @@
 syntax on
 filetype plugin indent on
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+  Plug 'tpope/vim-commentary'
+  Plug 'StanAngeloff/php.vim'
+  Plug 'stephpy/vim-php-cs-fixer'
+
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+
+  Plug 'vim-vdebug/vdebug'
+call plug#end()
+
 
 " For Colemak :
 " Navigation :
@@ -22,7 +39,6 @@ noremap <C-w>e <C-w>k
 " noremap <C-w>J <C-w>H
 noremap <C-w>i <C-w>l
 " noremap <C-w>K <C-w>J
-
 
 let g:ctrlp_max_depth=40
 let g:ctrlp_max_files=0
@@ -89,3 +105,7 @@ let NERDTreeMapOpenExpl='E' " Make sure the 'e' is usable for navigating in the 
 map <Leader>n :NERDTreeToggle<CR>
 
 set secure " disable unsafe commands in local .vimrc files
+
+" everytime you save, it will generate the tags you have in your PHP file:
+au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
+
