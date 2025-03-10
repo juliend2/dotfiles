@@ -100,6 +100,9 @@ set statusline+=%=                           " right align remainder··
 set statusline+=%-14(%l,%c%V%)               " line, character··
 set statusline+=%<%P                         " file position··
 
+" Vim Commentary:
+noremap <leader>/ :Commentary<cr>
+
 " NerdTree stuff:
 let NERDTreeChDirMode=2
 let NERDTreeMapOpenExpl='E' " Make sure the 'e' is usable for navigating in the NERDTree buffer
