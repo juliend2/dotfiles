@@ -85,6 +85,8 @@ let mapleader = ","
 " clipboard.
 vmap <C-c> "+y
 
+" Toggle paste mode using Leader + p:
+map <Leader>p :set paste!<CR>
 " Remove highlighting of search results:
 map <Leader>h :nohlsearch<CR>
 
@@ -104,6 +106,7 @@ set statusline+=%<%P                         " file position··
 noremap <leader>/ :Commentary<cr>
 
 " NerdTree stuff:
+let NERDTreeShowHidden=1
 let NERDTreeChDirMode=2
 let NERDTreeMapOpenExpl='E' " Make sure the 'e' is usable for navigating in the NERDTree buffer
 map <Leader>n :NERDTreeToggle<CR>
