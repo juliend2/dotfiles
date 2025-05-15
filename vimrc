@@ -19,7 +19,6 @@ call plug#begin()
   Plug 'vim-vdebug/vdebug'
 call plug#end()
 
-
 " For Colemak :
 " Navigation :
 noremap n j
@@ -37,11 +36,20 @@ noremap <C-w>n <C-w>j
 " noremap <C-w>H <C-w>K
 noremap <C-w>e <C-w>k
 " noremap <C-w>J <C-w>H
-noremap <C-w>i <C-w>l
 " noremap <C-w>K <C-w>J
+" Focus to the right window:
+noremap <C-w>i <C-w>l
+" Move the window to the right:
+noremap <C-w>I <C-w>L
+" Move the window to the left:
+noremap <C-w>J <C-w>H
 
 let g:ctrlp_max_depth=40
 let g:ctrlp_max_files=0
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]node_modules$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
 
 set exrc " enable per-directory .vimrc files
 
