@@ -1,6 +1,6 @@
 alias g='git'
 alias ll='ls -la'
-
+alias zed='zeditor'
 
 JVIMRC=$HOME/.jvimrc
 if test -f "$JVIMRC"; then
@@ -8,3 +8,5 @@ if test -f "$JVIMRC"; then
 else
   alias jim="echo '\`jim\` command is not set because there is no $JVIMRC file.'"
 fi
+
+alias agent='eval "$(ssh-agent -s)"'
