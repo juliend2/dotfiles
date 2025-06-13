@@ -44,8 +44,15 @@ noremap <C-w>I <C-w>L
 " Move the window to the left:
 noremap <C-w>J <C-w>H
 
+" We don't want to necessarily ignore files that start with a dot:
+let g:ctrlp_show_hidden=1
+" But we don't want to include `.git/*` files either:
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+" If it's more than 40 dirs deep, something is wrong:
 let g:ctrlp_max_depth=40
+" No maximum number of files found:
 let g:ctrlp_max_files=0
+" Ignore node_modules and binary files:
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]node_modules$',
   \ 'file': '\v\.(exe|so|dll)$',
