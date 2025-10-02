@@ -10,16 +10,17 @@ Note: it DOESN'T install vim-ruby because it's already included in Vim 8.
 
 Install the following on Linux Desktop:
 
-- xinit
-- i3
-- redshift
-- terminator
-- firefox
+- kde
+- wayland
+- OpenRefine
 
-Nice cli tools:
+## Nice cli tools to have
 
 - tree
-
+- qrencode: générer un QR code (image)
+- okular ou xdg-open: ouvrir une image
+- cut: pour prendre les colonnes
+- pdfgrep: grep for finding stuff inside PDFs
 
 ## TODO:
 
