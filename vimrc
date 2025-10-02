@@ -19,6 +19,9 @@ call plug#begin()
   Plug 'vim-vdebug/vdebug'
 call plug#end()
 
+" better clipboard handling for vim inside WSL:
+set clipboard+=unnamedplus
+
 " For Colemak :
 " Navigation :
 noremap n j
@@ -47,7 +50,9 @@ noremap <C-w>J <C-w>H
 " We don't want to necessarily ignore files that start with a dot:
 let g:ctrlp_show_hidden=1
 " But we don't want to include `.git/*` files either:
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+set wildignore=*/.git/*,*/.hg/*,*/.svn/*
+" Path completion with custom source command
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
 " If it's more than 40 dirs deep, something is wrong:
 let g:ctrlp_max_depth=40
 " No maximum number of files found:
@@ -125,9 +130,11 @@ let NERDTreeShowHidden=1
 let NERDTreeChDirMode=2
 let NERDTreeMapOpenExpl='E' " Make sure the 'e' is usable for navigating in the NERDTree buffer
 map <Leader>n :NERDTreeToggle<CR>
+" map <Leader>t :NERDTreeToggle<CR>
 
 set secure " disable unsafe commands in local .vimrc files
 
 " everytime you save, it will generate the tags you have in your PHP file:
 au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
 
+autocmd BufNewFile,BufRead *.mts set filetype=typescript
