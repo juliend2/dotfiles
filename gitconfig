@@ -24,6 +24,7 @@
 	tags = tag -l -n1
   fu = fetch upstream
   rud = rebase upstream/dev
+  compare = rev-list --left-right --count HEAD...origin/main
 
 [user]
 	name = Julien Desrosiers

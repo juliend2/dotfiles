@@ -1,4 +1,5 @@
 alias g='git'
+alias m='make'
 alias ll='ls -la'
 alias zed='zeditor'
 
