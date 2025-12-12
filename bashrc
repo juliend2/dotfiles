@@ -55,3 +55,8 @@ export NVM_DIR="$HOME/.nvm"
 
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+source "$HOME/.local/bin/env"
+
+alias v='nvim'
+
