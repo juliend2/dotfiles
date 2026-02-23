@@ -22,30 +22,6 @@ call plug#end()
 " better clipboard handling for vim inside WSL:
 set clipboard+=unnamedplus
 
-" For Colemak :
-" Navigation :
-noremap n j
-noremap e k
-noremap i l
-" End of word navigation :
-noremap j e
-" Next in search mode :
-noremap k n
-" l becomes the equivalent of i, for insert mode :
-noremap l i
-
-" Moving between splits :
-noremap <C-w>n <C-w>j
-" noremap <C-w>H <C-w>K
-noremap <C-w>e <C-w>k
-" noremap <C-w>J <C-w>H
-" noremap <C-w>K <C-w>J
-" Focus to the right window:
-noremap <C-w>i <C-w>l
-" Move the window to the right:
-noremap <C-w>I <C-w>L
-" Move the window to the left:
-noremap <C-w>J <C-w>H
 
 " We don't want to necessarily ignore files that start with a dot:
 let g:ctrlp_show_hidden=1
