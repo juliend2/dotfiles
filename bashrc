@@ -58,12 +58,13 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-source "$HOME/.local/bin/env"
+# Dont know what this is, but it didnt exist, so it was complaining on each new
+# bash session:
+# source "$HOME/.local/bin/env"
 
 alias v='nvim'
 
 eval $(keychain --eval --quiet id_rsa id_ed25519)
-
 
 
 export PATH="$PATH:$HOME/bin/google-cloud-sdk/bin"
