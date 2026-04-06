@@ -11,3 +11,5 @@ else
 fi
 
 alias agent='eval "$(ssh-agent -s)"'
+
+alias redscreen='redshift -P -O 3000'
