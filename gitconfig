@@ -25,6 +25,7 @@
   fu = fetch upstream
   rud = rebase upstream/dev
   compare = rev-list --left-right --count HEAD...origin/main
+  st = stash
 
 [user]
 	name = Julien Desrosiers

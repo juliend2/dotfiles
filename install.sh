@@ -143,6 +143,8 @@ _install_dir $PWD/vim $HOME/.vim
 # Adding bash sub-config:
 _install_bash_source $PWD/bash_aliases.sh $HOME/.bashrc
 
+git clone git@github.com:juliend2/neovim-configs.git $HOME/.config/nvim
+
 # Add plugins' documentation:
 vim -u NONE -c "helptags $VIM_VENDOR/start/nerdtree/doc" -c q
 

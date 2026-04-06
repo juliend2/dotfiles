@@ -3,6 +3,8 @@ source $HOME/bin/dotfiles/bash_aliases.sh
 export PATH="$PATH:$HOME/bin:$HOME/bin/php:$HOME/AppData/Local/bin/NASM"
 
 export PATH="$PATH:$HOME/bin/dotfiles"
+export PATH="$PATH:/var/lib/snapd/snap/bin"
+export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
 
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
@@ -55,3 +57,20 @@ export NVM_DIR="$HOME/.nvm"
 
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Dont know what this is, but it didnt exist, so it was complaining on each new
+# bash session:
+# source "$HOME/.local/bin/env"
+
+alias v='nvim'
+
+eval $(keychain --eval --quiet id_rsa id_ed25519)
+
+
+export PATH="$PATH:$HOME/bin/google-cloud-sdk/bin"
+
+
+source /usr/share/nvm/init-nvm.sh
+
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
