@@ -74,3 +74,9 @@ source /usr/share/nvm/init-nvm.sh
 
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+

@@ -11,3 +11,6 @@ else
 fi
 
 alias agent='eval "$(ssh-agent -s)"'
+
+alias pbcopy='wl-copy'
+alias pbpaste='wl-paste'
