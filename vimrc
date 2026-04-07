@@ -22,7 +22,6 @@ call plug#end()
 " better clipboard handling for vim inside WSL:
 set clipboard+=unnamedplus
 
-
 " We don't want to necessarily ignore files that start with a dot:
 let g:ctrlp_show_hidden=1
 " But we don't want to include `.git/*` files either:

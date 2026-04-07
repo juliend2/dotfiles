@@ -14,3 +14,4 @@ alias agent='eval "$(ssh-agent -s)"'
 
 alias pbcopy='wl-copy'
 alias pbpaste='wl-paste'
+alias redscreen='redshift -P -O 3000'
