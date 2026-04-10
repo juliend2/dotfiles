@@ -150,6 +150,6 @@ vim -u NONE -c "helptags $VIM_VENDOR/start/nerdtree/doc" -c q
 
 
 echo "+-----------------------------------------------------+"
-echo "| NOTE: For the .ssh/config, look at pwmgr            |"
+echo "| NOTE: For the .ssh/config, look at Bitwarden        |"
 echo "+-----------------------------------------------------+"
 
