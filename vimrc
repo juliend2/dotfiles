@@ -113,3 +113,6 @@ set secure " disable unsafe commands in local .vimrc files
 au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
 
 autocmd BufNewFile,BufRead *.mts set filetype=typescript
+
+" Make the matching parenthesis color blinking less confusing:
+highlight MatchParen ctermfg=black ctermbg=yellow
