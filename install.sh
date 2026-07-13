@@ -59,6 +59,14 @@ _err_if_dir_already_exists() {
   fi
 }
 
+_err_if_tool_not_installed() {
+	local tool=$1
+	if ! which "$tool" > /dev/null 2>&1; then
+		echo "❌ ERROR: $tool is not installed. Please install it first (https://github.com/dandavison/delta)."
+		exit 1
+	fi
+}
+
 _err_if_source_already_exists() {
   local line=$1
   local file=$2
@@ -128,17 +136,19 @@ _install_dir() {
 }
 
 # Run the installation of dot(files|directories) ...
-_install_dir $PWD/dot_config $HOME/.config
+#_install_dir $PWD/dot_config $HOME/.config
 _install $PWD/tmux.conf $HOME/.tmux.conf
-_install $PWD/gitconfig $HOME/.gitconfig
 _install $PWD/vimrc $HOME/.vimrc
 _install $PWD/bashrc $HOME/.bashrc
-_install $PWD/ssh_rc.sh $HOME/.ssh/rc
+#_install $PWD/ssh_rc.sh $HOME/.ssh/rc
 #_install $PWD/xprofile $HOME/.xprofile
 #_install $PWD/xinitrc $HOME/.xinitrc
 _install $PWD/inputrc $HOME/.inputrc
 _install_dir $PWD/vim $HOME/.vim
 #_install_dir $PWD/screenlayout $HOME/.screenlayout
+
+_err_if_tool_not_installed delta
+_install $PWD/gitconfig $HOME/.gitconfig
 
 # Adding bash sub-config:
 _install_bash_source $PWD/bash_aliases.sh $HOME/.bashrc
