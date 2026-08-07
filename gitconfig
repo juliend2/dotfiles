@@ -17,6 +17,7 @@
 	l = log
 	long = log --pretty=full
 	p = push
+	pf = push --force-with-lease
 	co = checkout
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
 	gr = grep -n --color=always
@@ -55,7 +56,6 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
-
 
 [interactive]
     diffFilter = delta --color-only
