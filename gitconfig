@@ -37,6 +37,7 @@
 
 [push]
 	default = simple
+  autoSetupRemote = true
 
 [color "diff-highlight"]
 	oldNormal = red bold
